@@ -3,7 +3,7 @@ builder = "nixpacks"
 buildCommand = "npm install && npm run build"
 
 [deploy]
-startCommand = "node_modules/.bin/serve dist --listen $PORT --single"
+startCommand = "node_modules/.bin/serve -s dist -l $PORT"
 healthcheckPath = "/"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
