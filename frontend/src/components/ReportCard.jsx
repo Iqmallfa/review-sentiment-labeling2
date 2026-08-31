@@ -20,6 +20,13 @@ function formatDateTime(isoString) {
   });
 }
 
+function formatDate(dateStr) {
+  if (!dateStr) return '-';
+  return new Date(dateStr).toLocaleDateString('id-ID', {
+    day: '2-digit', month: 'short', year: 'numeric',
+  });
+}
+
 export default function ReportCard({ report, onValidate }) {
   const [isValidating, setIsValidating] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,11 +86,18 @@ export default function ReportCard({ report, onValidate }) {
         <span className="text-xs font-mono text-blue-500 bg-blue-50 px-2 py-1 rounded">
           {report.temp_pk}
         </span>
-        {isCompleted && (
-          <span className="flex items-center text-green-600 text-sm font-medium">
-            <CheckCircle className="w-4 h-4 mr-1" /> Validated
-          </span>
-        )}
+        <div className="flex items-center gap-3">
+          {report.tanggal_review && (
+            <span className="text-xs text-gray-400 bg-gray-50 px-2 py-1 rounded border border-gray-100">
+              📅 {formatDate(report.tanggal_review)}
+            </span>
+          )}
+          {isCompleted && (
+            <span className="flex items-center text-green-600 text-sm font-medium">
+              <CheckCircle className="w-4 h-4 mr-1" /> Validated
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
