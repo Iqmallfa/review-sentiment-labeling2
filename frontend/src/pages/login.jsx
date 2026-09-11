@@ -72,7 +72,7 @@ export default function Login({ onLogin }) {
           </div>
         </div>
 
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">Validasi Deskripsi</h2>
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-2">Validasi Review Aplikasi JAKI</h2>
         <p className="text-center text-gray-500 mb-8">Masuk untuk memulai validasi</p>
 
         <form onSubmit={step === 1 ? handleCheckUsername : handlePasswordSubmit} className="space-y-6">
